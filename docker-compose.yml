@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend-SafetyWard
+    environment:
+      - PORT=5005
+      - SECRET_KEY=TzigMgCiR!ATxJ3EacZMyBh8KUaKpOXFQKkTYP3ldMHa2!IdgFuh1KB
+      - APP_FRONT_URL=http://3.141.173.18/
+      - NODE_ENV=prod
+      - AWS_ACCESS_KEY=AKIAV3MXNGM5E6QE6FGM
+      - AWS_SECRET_ACCESS_KEY=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
+    ports:
+      - '5005:5005'
+    volumes:
+      - ./src:/app/src
+    restart: unless-stopped
