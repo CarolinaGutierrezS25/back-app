@@ -17,7 +17,7 @@ export class IncidentsService {
     if(!incidentId || contacts.length === 0) throw new NotFoundException();
     else{
       contacts.forEach(element => {
-        let url = 'http://3.141.173.18/follow-up/' + incidentId + '/' + element.external_id
+        let url = 'https://api.safetyguard.com.mx/follow-up/' + incidentId + '/' + element.external_id
         const message = 'Tu contacto ' + userName + ' ha presionado el botón de panico, revisa el incidente: ' + url
         res = {...this.snsService.sendNotificationContacts(element.sms_topic, message)}
       });
